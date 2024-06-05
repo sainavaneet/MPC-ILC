@@ -1,0 +1,10 @@
+wheel_left_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel_left_joint
+  publish_rate: 50 
+
+wheel_right_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel_right_joint
+  publish_rate: 50 
+

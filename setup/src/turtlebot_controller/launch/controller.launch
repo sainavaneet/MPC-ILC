@@ -1,0 +1,21 @@
+<launch>
+
+    <arg  name="wheel_radius" default="0.033"/>
+    <arg  name="wheel_separation" default="0.170"/>
+
+    <rosparam file="$(find turtlebot_controller)/config/simple_controller.yaml" command = "load"/>
+
+    <rosparam file="$(find joint_state_controller)/joint_state_controller.yaml" command = "load"/>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
+          respawn = "false" output = "screen"/>
+
+    <node pkg="controller_manager" type="spawner" name="controller_manager"
+          respawn = "false" output = "screen" args="wheel_left_controller wheel_right_controller joint_state_controller"/>
+
+    <node pkg="turtlebot_controller" type="simple_controller_node" name="simple_controller_node" output="screen" respawn="true">
+        <param  name="wheel_radius" value="$(arg wheel_radius)"/>
+        <param  name="wheel_separation" value="$(arg wheel_separation)"/>   
+    </node>
+
+</launch>

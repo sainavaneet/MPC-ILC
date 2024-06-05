@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot name="my_cone" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual name='obstacle_1'>
+          <pose>-0.6 -0.6 0.25 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+
+        <collision name='obstacle_2'>
+          <pose>-0.6 0.6 0.25 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+    
+  </link>
+</robot>

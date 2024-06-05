@@ -1,0 +1,16 @@
+<launch>
+  <arg name="robot_name"/>
+  <arg name="init_pose"/>
+  <arg name="model" default="$(find turtlebot_description)/urdf/turtlebot_1.urdf.xacro"/>
+
+  <arg name="world" default="empty_world"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot_description)/urdf/turtlebot_1.urdf.xacro" />
+
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" 
+          args="-urdf -model $(arg robot_name) $(arg init_pose) -param robot_description -param robot_description" 
+          output="screen" respawn="false"/>
+
+
+</launch>

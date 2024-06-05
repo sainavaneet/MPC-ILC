@@ -1,0 +1,20 @@
+<launch>
+  
+    <!-- BEGIN ROBOT 1-->
+    <group ns="robot1">
+      <param name="tf_prefix" value="robot1_tf" />
+      <include file="$(find turtlebot_description)/launch/robot.launch" >
+        <arg name="init_pose" value="-x 0.3 -y 0 -z 0" />
+        <arg name="robot_name"  value="Robot1" />
+      </include>
+    </group>
+  
+    <!-- BEGIN ROBOT 2-->
+    <group ns="robot2">
+      <param name="tf_prefix" value="robot2_tf" />
+      <include file="$(find turtlebot_description)/launch/robot_1.launch" >
+        <arg name="init_pose" value="-x 0 -y 0 -z 0" />
+        <arg name="robot_name"  value="Robot2" />
+      </include>
+    </group>
+  </launch>
